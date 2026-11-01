@@ -35,3 +35,19 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+import requests
+import json
+
+response = requests.post(
+  url="https://openrouter.ai/api/v1/responses",
+  headers={
+    "Authorization": "Bearer <OPENROUTER_API_KEY>",
+    "HTTP-Referer": "<YOUR_SITE_URL>", 
+    "X-OpenRouter-Title": "<YOUR_SITE_NAME>", 
+  },
+  data=json.dumps({
+    "model": "~openai/gpt-sol-latest",
+    "input": "What is the meaning of life?"
+  })
+)
